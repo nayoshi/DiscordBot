@@ -1,6 +1,5 @@
-/* JARVIS generated with create-discord-bot CLI */
 const Discord = require('discord.js');
-const { prefix, token } = require('./configs.json');
+const { prefix, token } = require('./config.json');
 const client = new Discord.Client();
 
 const guild = client.guilds.get('592518485305982996');
