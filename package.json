@@ -1,5 +1,5 @@
 {
-    "name": "JARVIS",
+    "name": "lancelot",
     "version": "0.0.1",
     "description": "Bot created with create-discord-bot CLI",
     "main": "bot.js",
