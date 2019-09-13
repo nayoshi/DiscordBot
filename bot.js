@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const client = new Discord.Client();
 
-const guild = client.guilds.get('592518485305982996');
+// const guild = client.guilds.get('592518485305982996');
 
 client.on('ready', () => {
   console.log('Bot is ready!');
@@ -17,7 +17,7 @@ client.on('message', async message => {
   const line = message.content.split(' ');
   const cmd = line[0];
   let args = line.slice(1);
-
+  const guild = message.guild;
   if (cmd === `${prefix}ping`) {
     await message.channel.send('Pong.');
   }
@@ -41,7 +41,7 @@ client.on('message', async message => {
       .addField('Idle', idle.size)
       .addField('Admins available', admins.size);
 
-    await msg.channel.send(embed);
+    await message.channel.send(embed);
   }
 
   // Kick/ban a user
