@@ -6,3 +6,4 @@ module.exports = async function (command) {
     if (unYeet) await unYeet.removeRole(message.guild.roles.get(mutedRole))
   }
 }
+module.exports.description = ""

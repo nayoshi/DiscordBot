@@ -7,3 +7,4 @@ module.exports = async function (command) {
     // add message whenever someone gets kicked to a logging channel
   }
 }
+module.exports.description = ""

@@ -21,3 +21,4 @@ module.exports = async function (command) {
 
   await command.message.channel.send(embed)
 }
+module.exports.description = ""

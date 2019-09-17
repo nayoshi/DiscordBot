@@ -5,6 +5,7 @@ const kick = require('./kick')
 const purge = require('./purge')
 const mute = require('./mute')
 const unmute = require('./unmute')
+const help = require('./help')
 module.exports = {
   ping: ping,
   stats: stats,
@@ -12,5 +13,6 @@ module.exports = {
   ban: ban,
   purge: purge,
   mute: mute,
-  unmute: unmute
+  unmute: unmute,
+  help: help
 }

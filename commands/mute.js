@@ -7,3 +7,4 @@ module.exports = async function (command) {
     if (member && member.id !== message.author.id && member.highestRole.position < message.member.highestRole.position) { await member.addRole(message.guild.roles.get(muteRole)) }
   }
 }
+module.exports.description = ""
