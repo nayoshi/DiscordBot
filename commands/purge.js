@@ -6,4 +6,6 @@ module.exports = async function (command) {
     await command.message.channel.bulkDelete(fetchMsg).catch(e => message.reply(`Couldn't delete messages because of: ${e}`))
   }
 }
-module.exports.description = ""
+module.exports.permission = 'MANAGE_MESSAGES'
+module.exports.use = 'purge <number>'
+module.exports.description = 'Deletes messages from the chat'

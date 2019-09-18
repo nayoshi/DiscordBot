@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const { token } = require('./token.json')
 const client = new Discord.Client()
-const commandHandler = require('./commands/command-handler')
+const commandHandler = require('./commands/commandHandler')
 
 client.on('ready', () => {
   console.log('Bot is ready!');
