@@ -5,6 +5,6 @@ module.exports = async function (command) {
   await member.ban(member).catch(console.error)
   // add message whenever someone gets banned to a logging channel
 }
-module.exports.permission = 'MANAGE_MESSAGES'
+module.exports.permission = 'BAN_MEMBERS'
 module.exports.use = 'ban @<Username>'
 module.exports.description = 'Bans the user'
