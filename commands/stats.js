@@ -21,3 +21,6 @@ module.exports = async function (command) {
 
   await command.message.channel.send(embed)
 }
+module.exports.permission = ''
+module.exports.use = ''
+module.exports.description = 'Gets the user statistics of the server'
