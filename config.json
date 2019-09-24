@@ -1,5 +1,6 @@
 {
     "prefix": "!",
     "meaning_of_life": 42,
-    "muteRole": ""
+    "muteRole": "",
+    "roleMessageId": ""
 }
