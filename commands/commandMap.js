@@ -6,6 +6,7 @@ const purge = require('./purge')
 const mute = require('./mute')
 const unmute = require('./unmute')
 const help = require('./help')
+const whois = require('./whois')
 module.exports = {
   ping: ping,
   stats: stats,
@@ -14,5 +15,6 @@ module.exports = {
   purge: purge,
   mute: mute,
   unmute: unmute,
-  help: help
+  help: help,
+  whois: whois
 }

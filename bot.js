@@ -5,7 +5,7 @@ const commandHandler = require('./commands/commandHandler')
 const roleReactionHandler = require('./roles/roleReactionHandler')
 
 client.on('ready', () => {
-  console.log('Bot is ready!')
+  console.log('Lancelot is ready!')
 })
 
 client.on('raw', async event => roleReactionHandler(event, client))
