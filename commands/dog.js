@@ -79,9 +79,10 @@ module.exports = async function (command)
             break;
         default:
             dogCheck(command, args[0]);
+            console.log("Done with finding " + args[0]);
     }
 
-    console.log("Done with finding " + args[0]);
+    
 }
 
 // Allows the bot all permissions
