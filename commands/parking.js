@@ -9,17 +9,41 @@ module.exports = async function (command)
     // Grabs the names for the dogs
     switch(args[0])
     {
-        case "help":
-            helpDoggo(command, args[0]);
+        case "All":
             break;
+    
         case "A":
            break;
-        case "All":
+
+        case "B":
+            break;
+
+        case "C":
+            break;
+
+        case "D":
+            break;
+        
+        case "H":
+            break;
+        
+        case "I":
+            break;
+        
+        case "Libra":
             break;
 
         default:
-            command.message.channel.send("Currently, only Shiba-Inus are supported\nWe are fixing this issue however!\n");
+            command.message.channel.send("It seems you have provided input that is currently not available\n");
             break;
     }
 
 }
+
+// Allows the bot all permissions
+module.exports.permission = ''
+
+module.exports.use = ''
+
+// Sets the description of the command
+module.exports.description = 'Shows the amount of spaces in a garage'
