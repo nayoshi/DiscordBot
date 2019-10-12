@@ -1,5 +1,5 @@
 # Lancelot
-Discord bot created to serve the KnightHacks discord. Feel free to join us here [Here!](https://discord.gg/C4cuHFS) 
+Discord bot created to serve the KnightHacks discord. Feel free to join us [Here!](https://discord.gg/C4cuHFS) 
 
 ## Setup
 1. Clone this repository on your environment.
