@@ -1,8 +1,8 @@
 // Library plugin, currently is manually done
 // Will use date module to check for football games and adjust accordingly
 
-// Lets us grab all the data from football for whenever there's a home game
-var football = require('./football')
+
+
 module.exports = async function (command) 
 {
     
@@ -102,13 +102,7 @@ module.exports = async function (command)
     // Sets a new variable for current date
     var currentDate = new Date();
 
-    // Sets up the beginning and end dates of each semester
-    var fallSemesterBegin = new Date();
-    var fallSemesterEnds = new Date();
 
-
-    var springSemesterBegins = new Date();
-    var springSemesterEnds = new Date();
 
     // Try block for the times for the library
     try

@@ -8,7 +8,7 @@ const unmute = require('./unmute')
 const help = require('./help')
 const whois = require('./whois')
 const library = require('./library')
-const dog =  require('./dog')
+const parking = require('./parking')
 
 
 module.exports = {
@@ -22,5 +22,5 @@ module.exports = {
   help: help,
   whois: whois,
   library: library,
-  dog: dog
+  parking: parking,
 }
