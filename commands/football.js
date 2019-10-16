@@ -7,40 +7,40 @@ const cheerio = require('cheerio')
 // Installs prefix for arguments
 const Prefix = require('prefix')
 URL = 'https://zenith110.github.io/ucfFootballSite/'
-var gameDates = {}
-var gameNames = {}
-var gameScores = {}
-var gameBroadcasted = {}
+
 module.exports = async function (command) 
 {
     
     const args = command.message.content.slice(Prefix.length).trim().split(/ +/g)
     const commandExclusion = args.shift().toLowerCase()
-
-    // Gets the data of available garages from web page
+    // Local variables for these arrays
+    var gameDates = []
+    var gameNames = []
+    var gameScores = []
+    var gameBroadcasted = []
+    var overallData = []
+    
+    // Gets the data of available football stats from web page
     request(URL, (function (error, response, body) 
     {
         const $ = cheerio.load(body);
-        //Garages Are Stored in Strong Elements
-        //For Each Strong Element
+        
         $('#gameDate').each(function(i, elem)
         {
-            //Get date game was played
+            // Get date game was played
             gameDates[i] = ($(this).text());
-            //console.log(gameDates[i])
         })
-
+        
         $('#gameName').each(function(i, elem)
         {
-            //Get school/conference champship ship name
+            // Get school/conference champshionship name
             gameNames[i] = ($(this).text());
-            //console.log(gameNames[i])
         })
 
         $('#gameScore').each(function(i, elem)
         {
-            //Get specificed gameScore data
-            gameScores[i] = parseInt($(this).text());
+            //Get specificed game score data
+            gameScores[i] = ($(this).text());
         })
 
         $('#gameBrodcasted').each(function(i, elem)
@@ -48,13 +48,93 @@ module.exports = async function (command)
             //Get game brodcast strings
             gameBroadcasted[i] = ($(this).text());
         })
-    }))
-    console.log(gameScores[0])
-    switch(args[0])
+
+        $('#overallData').each(function(i, elem)
+        {
+            //Get overall data of the team
+            overallData[i] = ($(this).text());
+        })
+        
+        switch(args[0])
     {
         case '1':
-                await command.message.channel.send("Played on " + gameDates[0] + " against " + gameNames[0] + " , score was: " + gameScores[0] + ". " + gameBroadcasted[0])
+            command.message.channel.send("Played on " + gameDates[0] + " against " + gameNames[0] + " , score was: " + gameScores[0] + ". " + gameBroadcasted[0])
+            break;
+        
+        case '2':
+            command.message.channel.send("Played on " + gameDates[1] + " against " + gameNames[1] + " , score was: " + gameScores[1] + ". " + gameBroadcasted[1])
+            break;
+        
+        case '3':
+            command.message.channel.send("Played on " + gameDates[2] + " against " + gameNames[2] + " , score was: " + gameScores[2] + ". " + gameBroadcasted[2])
+            break;
+        
+        case '4':
+            command.message.channel.send("Played on " + gameDates[3] + " against " + gameNames[3] + " , score was: " + gameScores[3] + ". " + gameBroadcasted[3])
+            break;
+
+        case '5':
+            command.message.channel.send("Played on " + gameDates[4] + " against " + gameNames[4] + " , score was: " + gameScores[4] + ". " + gameBroadcasted[4])
+            break;
+
+        case '6':
+            command.message.channel.send("Played on " + gameDates[5] + " against " + gameNames[5] + " , score was: " + gameScores[5] + ". " + gameBroadcasted[5])
+            break;
+
+        case '7':
+            command.message.channel.send("Played on " + gameDates[6] + " against " + gameNames[6] + " , score was: " + gameScores[6] + ". " + gameBroadcasted[6])
+            break;
+
+        case '8':
+            command.message.channel.send("Played on " + gameDates[7] + " against " + gameNames[7] + " , score was: " + gameScores[7] + ". " + gameBroadcasted[7])
+            break;
+        
+        case '9':
+            command.message.channel.send("Played on " + gameDates[8] + " against " + gameNames[8] + " , score was: " + gameScores[8] + ". " + gameBroadcasted[8])
+            break;
+        
+        case '10':
+            command.message.channel.send("Played on " + gameDates[9] + " against " + gameNames[9] + " , score was: " + gameScores[9] + ". " + gameBroadcasted[9])
+            break;
+
+        case '11':
+            command.message.channel.send("Played on " + gameDates[10] + " against " + gameNames[10] + " , score was: " + gameScores[10] + ". " + gameBroadcasted[10])
+            break;
+
+        case '12':
+            command.message.channel.send("Played on " + gameDates[11] + " against " + gameNames[11] + " , score was: " + gameScores[11] + ". " + gameBroadcasted[11])
+            break;
+
+        case '13':
+            command.message.channel.send("Played on " + gameDates[12] + ", is the " + gameNames[12] + " , score was: " + gameScores[12] + ". " + gameBroadcasted[12])
+            break;
+
+        case 'help':
+            command.message.channel.send("```1 - 13 for games\noverall for total score of overall schedule\nhome for home wins\naway for away wins\nconference for conference wins```")
+            break;
+
+        case 'home':
+            command.message.channel.send("UCF is currently " + overallData[4] + " in home games")
+            break;
+
+        case 'away':
+            command.message.channel.send("UCF is currently " + overallData[5] + " in away games")
+            break;
+
+        case 'conference':
+            command.message.channel.send("UCF is currently " + overallData[2] + " in conference games")
+            break;
+
+
+        case 'overall':
+            command.message.channel.send("Ucf is currently " + overallData[0])
+            break;
+
+        default:
+            command.message.channel.send("Please pick a command, if help needed, use the help command.")
+            break;
     }
+    }))
 }
 
 // Allows the bot all permissions
