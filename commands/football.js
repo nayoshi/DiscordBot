@@ -1,3 +1,5 @@
+// Written by Abrahan Nevarez for KnightHacks@UCF
+
 // Installs request necessary for HTTP calls
 const request = require('request')
 
