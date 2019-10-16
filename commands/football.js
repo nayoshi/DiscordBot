@@ -112,7 +112,7 @@ module.exports = async function (command)
             break;
 
         case 'help':
-            command.message.channel.send("```1 - 13 for games\noverall for total score of overall schedule\nhome for home wins\naway for away wins\nconference for conference wins```")
+            command.message.channel.send("```1 - 13 for games\noverall for total score of overall schedule\nhome for home wins\naway for away wins\nconference for conference wins\nData taken from https://zenith110.github.io/ucfFootballSite/```")
             break;
 
         case 'home':
