@@ -21,12 +21,19 @@ module.exports = async function (command)
     var gameScores = []
     var gameBroadcasted = []
     var overallData = []
-    
+    var wonGameDate = []
+    var wonGameEvent = []
+    var wonGameScore = []
+    var lostGameDate = []
+    var lostGameEvent = []
+    var lostGameScore = []
+
     // Gets the data of available football stats from web page
     request(URL, (function (error, response, body) 
     {
         const $ = cheerio.load(body);
         
+        // Gets http calls using p id and span id identifiers
         $('#gameDate').each(function(i, elem)
         {
             // Get date game was played
@@ -56,7 +63,48 @@ module.exports = async function (command)
             //Get overall data of the team
             overallData[i] = ($(this).text());
         })
-        
+
+        $('#wonGameDate').each(function(i, elem)
+        {
+            //Get overall data of the team
+            wonGameDate[i] = ($(this).text());
+            
+        })
+
+        $('#wonGameEvent').each(function(i, elem)
+        {
+            //Get overall data of the team
+            wonGameEvent[i] = ($(this).text());
+            
+        })
+
+        $('#wonGameScore').each(function(i, elem)
+        {
+            //Get overall data of the team
+            wonGameScore[i] = ($(this).text());
+            
+        })
+
+        $('#lostGameDate').each(function(i, elem)
+        {
+            //Get overall data of the team
+            lostGameDate[i] = ($(this).text());
+            
+        })
+
+        $('#lostGameEvent').each(function(i, elem)
+        {
+            //Get overall data of the team
+            lostGameEvent[i] = ($(this).text());
+        })
+
+        $('#lostGameScore').each(function(i, elem)
+        {
+            //Get overall data of the team
+            lostGameScore[i] = ($(this).text());
+            
+        })
+        console.log(wonGameEvent)
         switch(args[0])
     {
         case '1':
@@ -112,7 +160,7 @@ module.exports = async function (command)
             break;
 
         case 'help':
-            command.message.channel.send("```1 - 13 for games\noverall for total score of overall schedule\nhome for home wins\naway for away wins\nconference for conference wins\nData taken from https://zenith110.github.io/ucfFootballSite/```")
+            command.message.channel.send("```1 - 13 for games\noverall for total score of overall schedule\nhome for home wins\naway for away wins\nconference for conference wins\nlgw for last game won\nlgl for last game lost\nData taken from https://zenith110.github.io/ucfFootballSite/```")
             break;
 
         case 'home':
@@ -127,9 +175,16 @@ module.exports = async function (command)
             command.message.channel.send("UCF is currently " + overallData[2] + " in conference games")
             break;
 
-
         case 'overall':
             command.message.channel.send("Ucf is currently " + overallData[0])
+            break;
+
+        case 'lgw':
+            command.message.channel.send("UCF last won on " + wonGameDate.splice(-1)[0] + " against " + wonGameEvent.splice(-1)[0] + " with a score of " + wonGameScore.splice(-1)[0])
+            break;
+        
+        case 'lgl':
+            command.message.channel.send("UCF last lost on " + lostGameDate.splice(-1)[0] + " against " + lostGameEvent.splice(-1)[0] + " with a score of " + lostGameScore.splice(-1)[0])
             break;
 
         default:
