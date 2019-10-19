@@ -11,28 +11,11 @@ const Prefix = require('prefix')
 
 const URL = 'https://secure.parking.ucf.edu/GarageCount/iframe.aspx'
 
-
-//UCF Garages Names
-const garageNames = ['A', 'B', 'C', 'D', 'H', 'I', 'Libra']
-
 //Number of Garage Spots Available
 var garageAvail = {};
 
-//Weekdays
-const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-
-//Timestamp of Current Time to allow insert of correct time even if database insert is delayed
-const timeStamp = new Date();
-
-
-
 module.exports = async function (command) 
 {
-    
-    // Grabs arguments and removes the command from the list
-    const args = command.message.content.slice(Prefix.length).trim().split(/ +/g)
-    const commandExclusion = args.shift().toLowerCase()
-
     // Gets the data of available garages from web page
     request(URL, (function (error, response, body) 
     {
@@ -45,68 +28,13 @@ module.exports = async function (command)
             garageAvail[i] = parseInt($(this).text());
         })
     }))
-    // Required garages
-    switch(args[0])
-    {
-        case 'A':
-            await command.message.channel.send("Garage A: " + garageAvail[0] + " out of 1623 spaces available")
-            break
-        
-         case 'a':
-            await command.message.channel.send("Garage A: " + garageAvail[0] + " out of 1623 spaces available")
-            break
 
-        case 'B':
-            await command.message.channel.send("Garage B: " + garageAvail[1] + " out of 1259 spaces available")
-            break
-
-        case 'b':
-            await command.message.channel.send("Garage B: " + garageAvail[1] + " out of 1259 spaces available")
-            break
-        
-        case 'C':
-            await command.message.channel.send("Garage C: " + garageAvail[2] + " out of 1852 spaces available")
-            break
-
-        case 'c':
-            await command.message.channel.send("Garage C: " + garageAvail[2] + " out of 1852 spaces available")
-            break
-
-        case 'D':
-            await command.message.channel.send("Garage D: " + garageAvail[3] + " out of 1241 spaces available")
-            break
-        
-        case 'd':
-            await command.message.channel.send("Garage D: " + garageAvail[3] + " out of 1241 spaces available")
-            break
-
-        case 'H':
-            await command.message.channel.send("Garage H: " + garageAvail[4] + " out of 1284 spaces available")
-            break
-
-        case 'h':
-            await command.message.channel.send("Garage H: " + garageAvail[4] + " out of 1284 spaces available")
-            break
-        
-        case 'I':
-            await command.message.channel.send("Garage I: " + garageAvail[5] + " out of 1231 spaces available")
-            break
-
-        case 'i':
-            await command.message.channel.send("Garage I: " + garageAvail[5] + " out of 1231 spaces available")
-            break
-        
-        case 'Libra':
-            await command.message.channel.send("Garage Libra: " + garageAvail[6] + " out of 1007 spaces available")
-            break
-
-        case 'libra':
-            await command.message.channel.send("Garage Libra: " + garageAvail[6] + " out of 1007 spaces available")
-            break
-    
-        default:
-            await command.message.channel.send("Please select a garage")
-    }
+    await command.message.channel.send("```Garage A: " + garageAvail[0] + " out of 1623 spaces available " + (Math.round((((1623 - garageAvail[0])/1623) * Math.pow(100, 1)))) +  "% full " + "\nGarage B: " + garageAvail[1] + " out of 1259 spaces available "  
+    + (Math.round((((1259 - garageAvail[1])/1259) * Math.pow(100, 1)))) +  "% full " + "\nGarage C: " + garageAvail[2] + " out of 1852 spaces available " + (Math.round((((1852 - garageAvail[2])/1852) * Math.pow(100, 1)))) +  "% full " + 
+    "\nGarage D: " + garageAvail[3] + " out of 1241 spaces available " + (Math.round((((1241 - garageAvail[3])/1241) * Math.pow(100, 1)))) +  "% full " + "\nGarage H: " + garageAvail[4] + 
+    " out of 1284 spaces available " + (Math.round((((1284 - garageAvail[4])/1284) * Math.pow(100, 1)))) +  "% full "
+    + "\nGarage I: " + garageAvail[5] + " out of 1231 spaces available " + (Math.round((((1231 - garageAvail[5])/1231) * Math.pow(100, 1)))) +  "% full " + "\nGarage Libra: " + garageAvail[6] + " out of 1007 spaces available " + 
+    (Math.round((((1007 - garageAvail[6])/1007) * Math.pow(100, 1)))) +  "% full ```")
 }
 
 // Allows the bot all permissions
