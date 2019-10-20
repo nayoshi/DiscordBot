@@ -189,12 +189,19 @@ module.exports = async function (command)
             break;
 
         case 'all':
-            command.message.channel.send("```Game 1: played on " + gameDates[0] + " against " + gameNames[0] + ", score was: " + gameScores[0] + "\nGame 2: played on " + gameDates[1] + " against " + gameNames[1] + ", score was: " + gameScores[1] 
-            + "\nGame 3: played on " + gameDates[2] + " against " + gameNames[2] + ", score was: " + gameScores[2] +  "\nGame 4: played on " + gameDates[3] + " against " + gameNames[3] + ", score was: " + gameScores[3] +  "\nGame 5: played on " 
-            + gameDates[4] + " against " + gameNames[4] + ", score was: " + gameScores[4] + "\nGame 6: played on " + gameDates[5] + " against " + gameNames[5] + ", score was: " + gameScores[5]+ "\nGame 7: played on " + gameDates[6] + " against " 
-            + gameNames[6] + ", score was: " + gameScores[6] + "\nGame 8: played on " + gameDates[7] + " against " + gameNames[7] + ", score was: " + gameScores[7] + "\nGame 9: played on " + gameDates[8] + " against " + gameNames[8] 
-            + ", score was: " + gameScores[8]+ "\nGame 10: played on " + gameDates[9] + " against " + gameNames[9] + ", score was: " + gameScores[9] + "\nGame 11: played on " + gameDates[10] + " against " + gameNames[10] + ", score was: " + gameScores[10]
-            + "\nGame 12: played on " + gameDates[11] + " against " + gameNames[11] + ", score was: " + gameScores[12] + "\nGame 13: played on " + gameDates[12] + " against " + gameNames[12] + ", score was: " + gameScores[12] + "```")
+            command.message.channel.send("```Game 1: played on " + gameDates[0] + " against " + gameNames[0] + ", score was: " + gameScores[0] + 
+            "\nGame 2: played on " + gameDates[1] + " against "  + gameNames[1] + ", score was: " + gameScores[1] + 
+            "\nGame 3: played on " + gameDates[2] + " against "  + gameNames[2] + ", score was: " + gameScores[2] +  
+            "\nGame 4: played on " + gameDates[3] + " against "  + gameNames[3] + ", score was: " + gameScores[3] +  
+            "\nGame 5: played on "  + gameDates[4] + " against " + gameNames[4]+ ", score was: "+   gameScores[4] + 
+            "\nGame 6: played on " + gameDates[5] + " against "  + gameNames[5] + ", score was: " + gameScores[5] + 
+            "\nGame 7: played on " + gameDates[6] + " against "  + gameNames[6] + ", score was: " + gameScores[6] + 
+            "\nGame 8: played on " + gameDates[7] + " against "  + gameNames[7] + ", score was: " + gameScores[7] + 
+            "\nGame 9: played on " + gameDates[8] + " against "  + gameNames[8] + ", score was: " + gameScores[8] + 
+            "\nGame 10: played on " + gameDates[9] + " against " + gameNames[9] + ", score was: "+  gameScores[9] + 
+            "\nGame 11: played on " + gameDates[10] + " against "+ gameNames[10]+ ", score was: " + gameScores[10]+ 
+            "\nGame 12: played on " + gameDates[11] + " against " + gameNames[11] + ", score was: " + gameScores[12] + 
+            "\nGame 13: played on " + gameDates[12] + " against " + gameNames[12] + ", score was: " + gameScores[12] + "```")
             break
 
         default:
