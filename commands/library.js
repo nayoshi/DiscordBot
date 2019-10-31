@@ -1,11 +1,7 @@
-// Library plugin, currently is manually done
-// Will use date module to check for football games and adjust accordingly
-
-
-
+// Written by Abrahan Nevarez for KnightHacks@UCF
+// Library check the user's calander and appropriately display the available start times and end times for that day
 module.exports = async function (command) 
 {
-    
     // Sets up a array for the days of the week
     var days = 
     [
@@ -18,7 +14,6 @@ module.exports = async function (command)
         "January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
     ];
 
-    // Temporarily putting a manual dictionary here for data
     // Sets up a dictionary object for the hours
     var libraryHours = 
     {
@@ -102,46 +97,52 @@ module.exports = async function (command)
     // Sets a new variable for current date
     var currentDate = new Date();
 
-
-
-    // Try block for the times for the library
+    // Try catch in case of bad dates
     try
     {
+        // Checks for specific days using the user calander
         switch(days[currentDate.getDay()])
         {
             case "Monday":
-                await command.message.channel.send("Today the library is open from: " + libraryHours.Monday.Availabletimes[0].Start + " - " + 
-                libraryHours.Monday.Availabletimes[0].Closed);
+                await command.message.channel.send("```Today the library is open from: " 
+                + libraryHours.Monday.Availabletimes[0].Start + " - " + 
+                libraryHours.Monday.Availabletimes[0].Closed + "```");
                 break;
 
             case "Tuesday":
-                await command.message.channel.send("Today the library is open from: " + libraryHours.Tuesday.Availabletimes[0].Start + " - " + 
-                libraryHours.Tuesday.Availabletimes[0].Closed);
+                await command.message.channel.send("```Today the library is open from: " 
+                + libraryHours.Tuesday.Availabletimes[0].Start + " - " + 
+                libraryHours.Tuesday.Availabletimes[0].Closed + "```");
                 break;
 
             case "Wednesday":
-                await command.message.channel.send("Today the library is open from: " + libraryHours.Wednesday.Availabletimes[0].Start + " - " + 
-                libraryHours.Wednesday.Availabletimes[0].Closed);
+                await command.message.channel.send("```Today the library is open from: " 
+                + libraryHours.Wednesday.Availabletimes[0].Start + " - " + 
+                libraryHours.Wednesday.Availabletimes[0].Closed + "```");
                 break;
             
             case "Thursday":
-                await command.message.channel.send("Today the library is open from: " + libraryHours.Thursday.Availabletimes[0].Start + " - " + 
-                libraryHours.Thursday.Availabletimes[0].Closed);
+                await command.message.channel.send("```Today the library is open from: " 
+                + libraryHours.Thursday.Availabletimes[0].Start + " - " + 
+                libraryHours.Thursday.Availabletimes[0].Closed + "```");
                 break;
 
             case "Friday":
-                await command.message.channel.send("Today the library is open from: " + libraryHours.Friday.Availabletimes[0].Start + " - " + 
-                libraryHours.Friday.Availabletimes[0].Closed);
+                await command.message.channel.send("```Today the library is open from: " 
+                + libraryHours.Friday.Availabletimes[0].Start + " - " + 
+                libraryHours.Friday.Availabletimes[0].Closed + "```");
                 break;
 
             case "Saturday":
-                await command.message.channel.send("Today the library is open from: " + libraryHours.Saturday.Availabletimes[0].Start + " - " + 
-                libraryHours.Saturday.Availabletimes[0].Closed);
+                await command.message.channel.send("```Today the library is open from: " 
+                + libraryHours.Saturday.Availabletimes[0].Start + " - " + 
+                libraryHours.Saturday.Availabletimes[0].Closed + "```");
                 break;
             
             case "Sunday":
-                await command.message.channel.send("Today the library is open from: " + libraryHours.Sunday.Availabletimes[0].Start + " - " + 
-                libraryHours.Sunday.Availabletimes[0].Closed);
+                await command.message.channel.send("```Today the library is open from: " 
+                + libraryHours.Sunday.Availabletimes[0].Start + " - " + 
+                libraryHours.Sunday.Availabletimes[0].Closed + "```");
                 break;
         }
     }
@@ -149,7 +150,8 @@ module.exports = async function (command)
     // Catch in case the day doesn't exist
     catch(error)
     {
-        console.log("Error has been encountered: " + error + " \nPlease check error")
+        console.log("Error has been encountered: " + error + 
+        "\nError is most likely attributed to incorrect date")
     }
 }
 // Allows the bot all permissions
