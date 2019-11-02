@@ -1,6 +1,6 @@
 const {
   mutedRole
-} = require('../config')
+} = require('../constants/config')
 module.exports = async function (command) {
   const {
     message,

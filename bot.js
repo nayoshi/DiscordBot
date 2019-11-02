@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const { token } = require('./token.json')
+const { token } = require('./constants/token')
 const client = new Discord.Client()
 const commandHandler = require('./commands/commandHandler')
 const roleReactionHandler = require('./roles/roleReactionHandler')

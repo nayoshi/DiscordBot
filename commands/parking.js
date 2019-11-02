@@ -9,9 +9,6 @@ const request = require('request')
 // Installs cherio, needed for JSON data
 const cheerio = require('cheerio')
 
-// Installs prefix for arguments
-const Prefix = require('prefix')
-
 const URL = 'https://secure.parking.ucf.edu/GarageCount/iframe.aspx'
 
 // Number of Garage Spots Available
@@ -19,42 +16,51 @@ var garageAvail = {}
 
 module.exports = async function (command) {
   // Gets the data of available garages from web page
-  request(URL, function (error, response, body) {
+  request(URL, (error, response, body) => {
     const $ = cheerio.load(body)
-    // Garages Are Stored in Strong Elements
-    // For Each Strong Element
-    $('strong').each(function (i, elem) {
-      // Get Garage Load
-      garageAvail[i] = parseInt($(this).text())
+    if (error) {
+      console.error(error)
+      return
+    }
+    // TODO Get the number of garages from website
+    // Loops 7 times because that's how many garages exists
+    for (let i = 0; i < 7; i++) {
+      // Gets every single row by their id
+      const row = $('#gvCounts_DXDataRow' + i).text()
+      // Regex match of `Garage *` and capture the wildcard
+      const garage = row.match(/(Garage)\s*(\w*)/)[2]
+      // Initialize the json object
+      garageAvail[garage] = {}
+      // Regex match of `num1/num2` and num 1 is the free space and num2 is the total number of spots
+      const num = row.match(/(\d*)\/(\d*)/)
+      garageAvail[garage].space = parseInt(num[1])
+      garageAvail[garage].total = parseInt(num[2])
+      // Corrects for the misnumbering of the parking spaces. As the number of parking garages does not match with the actual number.
+      if (garageAvail[garage].space >= garageAvail[garage].total) {
+        garageAvail[garage].space = garageAvail[garage].total
+      } else if (garageAvail[garage].space <= 0) {
+        garageAvail[garage].space = 0
+      }
+    }
+    // Beginning of a message
+    // TODO Embedded Message rather than simple message
+    let message = '```'
+    // For each key in the JS Object, construct the message while doing math on the fly.
+    Object.keys(garageAvail).forEach((value, index) => {
+      // The math is (max - available) / max * 100
+      message += 'Garage ' + value + ': ' + garageAvail[value].space + ' out of ' + garageAvail[value].total +
+        ' spaces available ' + (Math.round((((garageAvail[value].total - garageAvail[value].space) / garageAvail[value].total) * 100))) + '% full '
+      message += '\n'
     })
-
-    command.message.channel.send('```Garage A: ' + garageAvail[0] + ' out of 1623 spaces available ' +
-      (Math.round((((1623 - garageAvail[0]) / 1623) * Math.pow(100, 1)))) + '% full ' +
-
-      '\nGarage B: ' + garageAvail[1] + ' out of 1259 spaces available ' +
-      (Math.round((((1259 - garageAvail[1]) / 1259) * Math.pow(100, 1)))) + '% full ' +
-
-      '\nGarage C: ' + garageAvail[2] + ' out of 1852 spaces available ' +
-      (Math.round((((1852 - garageAvail[2]) / 1852) * Math.pow(100, 1)))) + '% full ' +
-
-      '\nGarage D: ' + garageAvail[3] + ' out of 1241 spaces available ' +
-      (Math.round((((1241 - garageAvail[3]) / 1241) * Math.pow(100, 1)))) + '% full ' +
-
-      '\nGarage H: ' + garageAvail[4] + ' out of 1284 spaces available ' +
-      (Math.round((((1284 - garageAvail[4]) / 1284) * Math.pow(100, 1)))) + '% full ' +
-
-      '\nGarage I: ' + garageAvail[5] + ' out of 1231 spaces available ' +
-      (Math.round((((1231 - garageAvail[5]) / 1231) * Math.pow(100, 1)))) + '% full ' +
-
-      '\nGarage Libra: ' + garageAvail[6] + ' out of 1007 spaces available ' +
-      (Math.round((((1007 - garageAvail[6]) / 1007) * Math.pow(100, 1)))) + '% full```')
+    message += '```'
+    // Sends the message so that user will be notified
+    command.message.channel.send(message)
   })
 }
 
-// Allows the bot all permissions
 module.exports.permission = ''
 
 module.exports.use = ''
 
 // Sets the description of the command
-module.exports.description = 'Shows the amount of spaces in UCF\'s garages'
+module.exports.description = 'Shows the currently available amount of spaces in UCF\'s garages'
