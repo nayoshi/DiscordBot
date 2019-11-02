@@ -5,11 +5,11 @@ const libraryHours = require('../constants/libraryHours')
 // Library check the user's calander and appropriately display the available start times and end times for that day
 module.exports = async function (command) {
   // Sets up a array for the days of the week
-  var days = [
+  const days = [
     'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
   ]
   // Sets a new variable for current date
-  var currentDate = new Date()
+  const currentDate = new Date()
   // Try catch in case of bad dates
   const day = days[currentDate.getDay()]
   command.message.channel.send('```Today the library is open from: ' +
