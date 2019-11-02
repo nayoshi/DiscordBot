@@ -63,4 +63,4 @@ module.exports.permission = ''
 module.exports.use = ''
 
 // Sets the description of the command
-module.exports.description = 'Shows the amount of totals in UCF\'s garages'
+module.exports.description = 'Shows the currently available amount of spaces in UCF\'s garages'
