@@ -23,4 +23,4 @@ module.exports.permission = ''
 module.exports.use = ''
 
 // Sets the description of the command
-module.exports.description = 'Grab the current day main library hours'
+module.exports.description = 'Grab the current day\'s library hours'
