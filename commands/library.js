@@ -1,6 +1,6 @@
 // Written by Abrahan Nevarez for KnightHacks@UCF
 // Sets up a dictionary object for the hours
-const libraryHours = require('../constants/libraryHours.json')
+const libraryHours = require('../constants/libraryHours')
 
 // Library check the user's calander and appropriately display the available start times and end times for that day
 module.exports = async function (command) {

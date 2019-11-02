@@ -1,5 +1,5 @@
 const roleReactionMap = require('./roleReactionMap')
-const { roleMessageId } = require('../config')
+const { roleMessageId } = require('../constants/config')
 
 module.exports = async function (event, client) {
   if ((event.t === 'MESSAGE_REACTION_REMOVE') || (event.t === 'MESSAGE_REACTION_ADD')) {

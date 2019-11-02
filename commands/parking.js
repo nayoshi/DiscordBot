@@ -9,9 +9,6 @@ const request = require('request')
 // Installs cherio, needed for JSON data
 const cheerio = require('cheerio')
 
-// Installs prefix for arguments
-const Prefix = require('prefix')
-
 const URL = 'https://secure.parking.ucf.edu/GarageCount/iframe.aspx'
 
 // Number of Garage Spots Available

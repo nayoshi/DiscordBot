@@ -1,7 +1,7 @@
 const commandMap = require('./commandMap')
 const {
   prefix
-} = require('../config')
+} = require('../constants/config')
 
 const Discord = require('discord.js')
 
