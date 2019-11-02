@@ -13,14 +13,10 @@ module.exports = async function (command) {
     embed.addField('**' + val + '**', commands[val].description)
   })
 
-  message.channel.send('<@' + message.member.id + ">: I DM'd you the command list 😊").then((msg) => {
-    setTimeout(() => {
-      msg.delete()
-    }, 5000)
-  })
+  message.channel.send('<@' + message.member.id + ">: I DM'd you the command list 😊")
 
   message.member.send(embed)
 }
 module.exports.permission = ''
-module.exports.use = 'mute @<Username>'
+module.exports.use = ''
 module.exports.description = 'Helps the user'
