@@ -17,7 +17,7 @@ module.exports = {
   windows: 'Windows Help',
   macos: 'MacOS Help',
   math: 'Math Help',
-  hackgt: 'hackGT',
-  hackfsu: 'hackFSU',
-  swamphacks: 'swamphacks'
+  phoenixhacks: 'phoenixhacks',
+  swamphacks: 'swamphacks',
+  knighthacks: 'knighthacks'
 }
