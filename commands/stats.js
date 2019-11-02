@@ -23,4 +23,4 @@ module.exports = async function (command) {
 }
 module.exports.permission = ''
 module.exports.use = ''
-module.exports.description = 'Gets the user statistics of the server'
+module.exports.description = 'Displays server statistics'

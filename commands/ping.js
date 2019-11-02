@@ -1,5 +1,5 @@
 module.exports = async function (command) {
-  await command.message.channel.send('pong')
+  await command.message.channel.send('Pong!')
 }
 module.exports.permission = ''
 module.exports.use = ''

@@ -9,7 +9,6 @@ const help = require('./help')
 const whois = require('./whois')
 const library = require('./library')
 const parking = require('./parking')
-const football = require('./football')
 
 module.exports = {
   ping: ping,
@@ -22,6 +21,5 @@ module.exports = {
   help: help,
   whois: whois,
   library: library,
-  parking: parking,
-  football: football,
+  parking: parking
 }

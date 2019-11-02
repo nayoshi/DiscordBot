@@ -1,5 +1,7 @@
 const commandMap = require('./commandMap')
-const { prefix } = require('../config')
+const {
+  prefix
+} = require('../config')
 
 const Discord = require('discord.js')
 
@@ -24,7 +26,7 @@ module.exports = async function (message) {
       const embed = new Discord.RichEmbed()
         .setTitle('**' + command.name + '**')
         .setColor('#15f153')
-        .setDescription('You do not have the permission to run this command.')
+        .setDescription('You do not have the required permissions to run this command.')
       message.channel.send(embed)
       return
     }

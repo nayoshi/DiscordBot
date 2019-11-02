@@ -20,4 +20,4 @@ module.exports = async function (command) {
 }
 module.exports.permission = ''
 module.exports.use = ''
-module.exports.description = 'Determine the detail of the specific user'
+module.exports.description = 'Displays a specified user\'s details'

@@ -1,5 +1,8 @@
 module.exports = async function (command) {
-  const { message, args } = command
+  const {
+    message,
+    args
+  } = command
   const member = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
 
   await member.ban(member).catch(console.error)
@@ -7,4 +10,4 @@ module.exports = async function (command) {
 }
 module.exports.permission = 'BAN_MEMBERS'
 module.exports.use = 'ban @<Username>'
-module.exports.description = 'Bans the user'
+module.exports.description = 'Bans the specified user'
