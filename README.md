@@ -19,13 +19,13 @@ Place the token.json in the `constants/` directory.
 
 ## Pull Request Etiquettte
 1. Run your code through ESLint first. (Refer to ESLint section)
-2. Read over your comments and variable names and check for speeling errors.
+2. Read over your comments and variable names and check for spelling errors.
 3. Check for compilation errors.
 
 ## ESLint
 > What is ESLint?
 
-ESLint is a way to create a uniform code base through out the project. It is beneficial because it allows multiple people to create and work on the project and stick to one coding style.
+ESLint is a way to create a uniform code base throughout the project. It is beneficial because it allows multiple people to create and work on the project and stick to one coding style.
 
 ### Setup (VSCode Users only)
 1. Click on `File` > `Preferences` > `Extensions` and install `ESLint` by Dirk Baeumer.
@@ -36,7 +36,7 @@ ESLint is a way to create a uniform code base through out the project. It is ben
 ### ESLint without VSCode
 1. Go to the project's home directory, and run `node_modules/.bin/eslint <file>`.
 2. This will guide you to fixing your mistakes.
-3. If you are having trouble decoding your coding inconsistency checkout:
+3. If you are having trouble decoding your coding inconsistency check out:
     > https://requirejs.org/docs/commonjs.html
     
     > https://flaviocopes.com/es6/
