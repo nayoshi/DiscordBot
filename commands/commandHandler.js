@@ -1,6 +1,8 @@
 const commandMap = require('./commandMap')
 const { prefix } = require('../config')
+
 const Discord = require('discord.js')
+
 module.exports = async function (message) {
   if (message.author.bot) return
   if (message.channel.type === 'dm') return

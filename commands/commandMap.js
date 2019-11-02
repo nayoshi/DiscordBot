@@ -7,6 +7,10 @@ const mute = require('./mute')
 const unmute = require('./unmute')
 const help = require('./help')
 const whois = require('./whois')
+const library = require('./library')
+const parking = require('./parking')
+const football = require('./football')
+
 module.exports = {
   ping: ping,
   stats: stats,
@@ -16,5 +20,8 @@ module.exports = {
   mute: mute,
   unmute: unmute,
   help: help,
-  whois: whois
+  whois: whois,
+  library: library,
+  parking: parking,
+  football: football,
 }
