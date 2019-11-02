@@ -22,5 +22,5 @@ module.exports = async function (command) {
   message.member.send(embed)
 }
 module.exports.permission = ''
-module.exports.use = 'mute @<Username>'
+module.exports.use = ''
 module.exports.description = 'Helps the user'
