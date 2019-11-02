@@ -2,9 +2,9 @@
 // Sets up a dictionary object for the hours
 const libraryHours = require('../constants/libraryHours')
 
-// Library check the user's calander and appropriately display the available start times and end times for that day
+// Library check the user's calendar and appropriately display the available start times and end times for that day
 module.exports = async function (command) {
-  // Sets up a array for the days of the week
+  // Sets up an array for the days of the week
   const days = [
     'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
   ]
