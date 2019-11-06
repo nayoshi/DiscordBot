@@ -19,7 +19,7 @@ Place the token.json in the `constants/` directory.
 
 ## Pull Request Etiquettte
 1. Run your code through ESLint first. (Refer to ESLint section)
-2. Read over your comments and variable names and check for spelling errors.
+2. Read over your comments and variable names and check for speelign erorrs.
 3. Check for compilation errors.
 
 ## ESLint

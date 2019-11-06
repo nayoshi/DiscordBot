@@ -1,0 +1,9 @@
+{
+    "coin": [{
+            "name": "heads"
+        },
+        {
+            "name": "tails"
+        }
+    ]
+}
