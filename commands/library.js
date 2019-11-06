@@ -13,8 +13,8 @@ module.exports = async function (command) {
   // Try catch in case of bad dates
   const day = days[currentDate.getDay()]
   command.message.channel.send('```Today the library is open from: ' +
-      libraryHours[day].Start + ' - ' +
-      libraryHours[day].Closed + '```'
+    libraryHours[day].Start + ' - ' +
+    libraryHours[day].Closed + '```'
   )
 }
 // Allows the bot all permissions
