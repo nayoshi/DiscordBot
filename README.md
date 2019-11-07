@@ -4,10 +4,10 @@ Discord bot created to serve the KnightHacks discord. Feel free to join us [Here
 ## Setup
 1. Clone this repository on your environment.
 2. Install the latest nodejs and npm:
-    a. https://nodejs.org/en/
-    b. Instructions for Mac: https://treehouse.github.io/installation-guides/mac/node-mac.html
-    c. Instructions for Windows: https://www.guru99.com/download-install-node-js.html
-    d. Instructions for Linux: https://blog.teamtreehouse.com/install-node-js-npm-linux
+    - https://nodejs.org/en/
+    - Instructions for Mac: https://treehouse.github.io/installation-guides/mac/node-mac.html
+    - Instructions for Windows: https://www.guru99.com/download-install-node-js.html
+    - Instructions for Linux: https://blog.teamtreehouse.com/install-node-js-npm-linux
 3. Visit the project's main directory and run `npm install`
 4. Create a `constants/token.json` file and format and insert your discord bot token properly. (Refer to token.json section)
 5. Run `npm start` to start the discord bot.
