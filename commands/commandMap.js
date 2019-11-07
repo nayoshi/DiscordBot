@@ -10,6 +10,7 @@ const whois = require('./whois')
 const library = require('./library')
 const parking = require('./parking')
 const coinflip = require('./coinflip')
+const diceroll = require('./diceRoll')
 
 module.exports = {
   ping: ping,
@@ -23,5 +24,6 @@ module.exports = {
   whois: whois,
   library: library,
   parking: parking,
-  coinflip: coinflip
+  coinflip: coinflip,
+  diceroll: diceroll
 }
