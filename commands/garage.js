@@ -54,7 +54,8 @@ function requestGarageData () {
         const $ = cheerio.load(body)
         // for each row in the website, create an entry in the JSObject
         // and store the space and total spaces, also calculate the occupancy percentage
-        for (let i = 0; i < 7; i++) {
+        var i = 0
+        while ($('#gvCounts_DXDataRow' + i).text()) {
           const row = $('#gvCounts_DXDataRow' + i).text()
           const garage = row.match(/(Garage)\s*(\w*)/)[2]
           garageData[garage] = {}
@@ -67,6 +68,7 @@ function requestGarageData () {
             garageData[garage].space = 0
           }
           garageData[garage].percentage = Math.round((((garageData[garage].total - garageData[garage].space) / garageData[garage].total) * 100))
+          i++
         }
         // Override what's in the cached json and write it in to the file
         garageJSON.garages = garageData
