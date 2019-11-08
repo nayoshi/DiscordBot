@@ -8,8 +8,8 @@ const unmute = require('./unmute')
 const help = require('./help')
 const whois = require('./whois')
 const library = require('./library')
-const parking = require('./parking')
-const coinflip = require('./coinflip')
+const garage = require('./garage')
+const coinflip = require('./coinFlip')
 const diceroll = require('./diceRoll')
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
   help: help,
   whois: whois,
   library: library,
-  parking: parking,
+  garage: garage,
   coinflip: coinflip,
   diceroll: diceroll
 }

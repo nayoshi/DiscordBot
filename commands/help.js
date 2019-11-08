@@ -18,8 +18,6 @@ module.exports = async function (command) {
     embed.addField('**' + val + '**', commands[val].description)
   })
 
-  message.channel.send('<@' + message.member.id + ">: I DM'd you the command list 😊")
-
   message.member.send(embed)
 }
 module.exports.permission = ''
