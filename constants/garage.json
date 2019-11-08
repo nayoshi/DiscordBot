@@ -1,0 +1,33 @@
+{
+  "lastCached": 1573243036833,
+  "garages": {
+    "A": {
+      "space": 1056,
+      "total": 1623
+    },
+    "B": {
+      "space": 241,
+      "total": 1259
+    },
+    "C": {
+      "space": 656,
+      "total": 1852
+    },
+    "D": {
+      "space": 699,
+      "total": 1241
+    },
+    "H": {
+      "space": 319,
+      "total": 1284
+    },
+    "I": {
+      "space": 693,
+      "total": 1231
+    },
+    "Libra": {
+      "space": 258,
+      "total": 1007
+    }
+  }
+}
