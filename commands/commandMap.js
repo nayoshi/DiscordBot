@@ -9,7 +9,7 @@ const help = require('./help')
 const whois = require('./whois')
 const library = require('./library')
 const garage = require('./garage')
-const coinflip = require('./coinFlip')
+const coinflip = require('./coinflip')
 const diceroll = require('./diceRoll')
 
 module.exports = {

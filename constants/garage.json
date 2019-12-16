@@ -1,40 +1,40 @@
 {
-  "nextCache": 1573247246669,
+  "nextCache": 1576525088634,
   "garages": {
     "A": {
-      "space": 1246,
+      "space": 1423,
       "total": 1623,
-      "percentage": 23
+      "percentage": 12
     },
     "B": {
-      "space": 587,
+      "space": 656,
       "total": 1259,
-      "percentage": 53
+      "percentage": 48
     },
     "C": {
-      "space": 872,
+      "space": 1364,
       "total": 1852,
-      "percentage": 53
+      "percentage": 26
     },
     "D": {
-      "space": 880,
+      "space": 1103,
       "total": 1241,
-      "percentage": 29
+      "percentage": 11
     },
     "H": {
-      "space": 683,
+      "space": 1137,
       "total": 1284,
-      "percentage": 47
+      "percentage": 11
     },
     "I": {
-      "space": 850,
+      "space": 956,
       "total": 1231,
-      "percentage": 31
+      "percentage": 22
     },
     "Libra": {
-      "space": 354,
+      "space": 839,
       "total": 1007,
-      "percentage": 65
+      "percentage": 17
     }
   }
 }
