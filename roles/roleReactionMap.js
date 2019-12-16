@@ -19,5 +19,7 @@ module.exports = {
   math: 'Math Help',
   phoenixhacks: 'phoenixhacks',
   swamphacks: 'swamphacks',
+  hatterhacks: 'hatterhacks',
+  hackabull: 'hackabull',
   knighthacks: 'knighthacks'
 }
