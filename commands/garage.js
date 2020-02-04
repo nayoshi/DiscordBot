@@ -23,7 +23,7 @@ module.exports = async function (command) {
   // Garage letter:
   // 500/500 (100%)
   Object.keys(garageData).forEach((value, index) => {
-    embed.addField('**Garage ' + value + '**', garageData[value].space + '/' + garageData[value].total + ' (' + garageData[value].percentage + '%)', true)
+    embed.addField('**Garage ' + value + '**', garageData[value].space + '/' + garageData[value].total + ' (' + garageData[value].percentage + '% full)', true)
   })
   // This fetches the cached time in the local file to inform user of how "new" the data is
   // Format:
