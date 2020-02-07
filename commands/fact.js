@@ -1,4 +1,5 @@
 // Written by Tyler Sanders for KnightHacks@UCF
+// "npm install node-fetch --save" for fetch to work
 const fetch = require('node-fetch')
 
 // Function grabs a random fact from the html of a website
