@@ -1,4 +1,4 @@
-// Written by Abrahan Nevarez for KnightHacks@UCF
+// Written Originally by Abrahan Nevarez
 // Sets up a dictionary object for the hours
 const libraryHours = require('../constants/libraryHours')
 
