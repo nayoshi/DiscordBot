@@ -17,9 +17,7 @@ module.exports = {
   windows: 'Windows Help',
   macos: 'MacOS Help',
   math: 'Math Help',
-  phoenixhacks: 'phoenixhacks',
-  swamphacks: 'swamphacks',
-  hatterhacks: 'hatterhacks',
   hackabull: 'hackabull',
-  knighthacks: 'knighthacks'
+  knighthacks: 'knighthacks',
+  pp_practice: 'PP Participant'
 }
