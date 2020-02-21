@@ -1,18 +1,19 @@
-// Written Originally by Tyler Sanders
-
+// Written Originally by Tyler Sander
 const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 // Function grabs a random fact from the html of a website
 module.exports = async function (command) {
   // this site has ~1400 random facts
   var id = Math.floor(Math.random() * 1490) + 1
+
+  const URL = 'http://www.randomfactgenerator.net/?id=' + id
   if (id === 1490) {
     command.message.channel.send("Facts don't care about your feelings!")
   } else {
     // Grabs the url returns Response
-    let response = await fetch('http://www.randomfactgenerator.net/?id=' + id)
+    const response = await fetch(URL)
     // Parses the body out of the response
-    let body = await response.text()
+    const body = await response.text()
 
     // Load up html to cheerio
     const $ = cheerio.load(body)
