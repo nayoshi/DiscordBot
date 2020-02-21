@@ -6,7 +6,7 @@
     "author": "lienne",
     "scripts": {
         "test": "nodemon bot.js",
-        "deploy": "node config.js",
+        "setup": "node config.js",
         "start": "node bot.js"
     },
     "dependencies": {
