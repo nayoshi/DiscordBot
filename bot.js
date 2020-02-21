@@ -12,4 +12,8 @@ client.on('raw', async event => roleReactionHandler(event, client))
 
 client.on('message', async message => commandHandler(message))
 
-client.login(token)
+if (token !== 'INSERT TOKEN') {
+  client.login(token)
+} else {
+  console.log('\nERROR: Insert a token in constants/token.json.\n\nIf it doesn\'t exist, please run `npm run setup`\n')
+}
