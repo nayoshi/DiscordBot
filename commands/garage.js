@@ -1,5 +1,5 @@
 // Importing all node modules
-const request = require('request')
+const fetch = require('node-fetch')
 const Discord = require('discord.js')
 const cheerio = require('cheerio')
 const fs = require('fs')
@@ -34,9 +34,10 @@ module.exports = async function (command) {
   command.message.channel.send(embed)
 }
 
-function requestGarageData () {
+async function requestGarageData () {
   // Promises are packages that you send to an async function where they can access the files whenever the function finishes
-  return new Promise((resolve, reject) => {
+  // eslint-disable-next-line no-async-promise-executor
+  return new Promise(async (resolve, reject) => {
     // Gets the current time in Unix epoch milliseconds
     const currentTime = (new Date()).getTime()
     // Accesses the garage file to be able to write in to it
@@ -44,42 +45,39 @@ function requestGarageData () {
 
     // If the next cache is due, otherwise give cached data
     if (garageJSON.nextCache < currentTime) {
-      request(URL, (error, response, body) => {
-        if (error) {
-          console.error(error)
-          return
+      const response = await fetch(URL)
+      // Parses the body out of the response
+      const body = await response.text()
+      // Create a JSObject
+      var garageData = {}
+      const $ = cheerio.load(body)
+      // for each row in the website, create an entry in the JSObject
+      // and store the space and total spaces, also calculate the occupancy percentage
+      var i = 0
+      while ($('#gvCounts_DXDataRow' + i).text()) {
+        const row = $('#gvCounts_DXDataRow' + i).text()
+        const garage = row.match(/(Garage)\s*(\w*)/)[2]
+        garageData[garage] = {}
+        const num = row.match(/(\d*)\/(\d*)/)
+        garageData[garage].space = parseInt(num[1])
+        garageData[garage].total = parseInt(num[2])
+        if (garageData[garage].space >= garageData[garage].total) {
+          garageData[garage].space = garageData[garage].total
+        } else if (garageData[garage].space <= 0) {
+          garageData[garage].space = 0
         }
-        // Create a JSObject
-        var garageData = {}
-        const $ = cheerio.load(body)
-        // for each row in the website, create an entry in the JSObject
-        // and store the space and total spaces, also calculate the occupancy percentage
-        var i = 0
-        while ($('#gvCounts_DXDataRow' + i).text()) {
-          const row = $('#gvCounts_DXDataRow' + i).text()
-          const garage = row.match(/(Garage)\s*(\w*)/)[2]
-          garageData[garage] = {}
-          const num = row.match(/(\d*)\/(\d*)/)
-          garageData[garage].space = parseInt(num[1])
-          garageData[garage].total = parseInt(num[2])
-          if (garageData[garage].space >= garageData[garage].total) {
-            garageData[garage].space = garageData[garage].total
-          } else if (garageData[garage].space <= 0) {
-            garageData[garage].space = 0
-          }
-          garageData[garage].percentage = Math.round((((garageData[garage].total - garageData[garage].space) / garageData[garage].total) * 100))
-          i++
+        garageData[garage].percentage = Math.round((((garageData[garage].total - garageData[garage].space) / garageData[garage].total) * 100))
+        i++
+      }
+      // Override what's in the cached json and write it in to the file
+      garageJSON.garages = garageData
+      garageJSON.nextCache = currentTime + garageTime
+      fs.writeFile(garageFile, JSON.stringify(garageJSON, null, 2), (err) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(garageData)
         }
-        // Override what's in the cached json and write it in to the file
-        garageJSON.garages = garageData
-        garageJSON.nextCache = currentTime + garageTime
-        fs.writeFile(garageFile, JSON.stringify(garageJSON, null, 2), (err) => {
-          if (err) {
-            reject(err)
-          } else {
-            resolve(garageData)
-          }
-        })
       })
     } else {
       resolve(garageJSON.garages)

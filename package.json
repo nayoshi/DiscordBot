@@ -6,6 +6,7 @@
     "author": "lienne",
     "scripts": {
         "test": "nodemon bot.js",
+        "setup": "node config.js",
         "start": "node bot.js"
     },
     "dependencies": {
@@ -13,7 +14,6 @@
         "cheerio": "^1.0.0-rc.3",
         "discord.js": "^11.5.1",
         "prefix": "^1.0.0",
-        "request": "2.88.0",
         "selenium-webdriver": "^4.0.0-alpha.5",
         "node-fetch":"^2.6.0"
     },
