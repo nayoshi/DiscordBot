@@ -12,10 +12,22 @@ const configs = {
       meaning_of_life: 42,
       muteRole: '',
       roleMessageId: '',
-      garageTime: 120000
+      garageTime: 120000,
+      doggoTime: 120000
     },
     'token.json': {
       token: 'INSERT TOKEN'
+    },
+    'pets.json': {
+      dog: {
+        nextCache: 0
+      },
+      cat: {
+        nextCache: 0
+      },
+      hamster: {
+        nextCache: 0
+      }
     }
   },
   roles: {

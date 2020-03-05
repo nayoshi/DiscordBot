@@ -13,6 +13,8 @@ const coinflip = require('./coinflip')
 const diceroll = require('./diceRoll')
 const fact = require('./fact')
 
+const dog = require('./doggo')
+// const pet = require('./pet')
 module.exports = {
   ping: ping,
   stats: stats,
@@ -27,5 +29,8 @@ module.exports = {
   garage: garage,
   coinflip: coinflip,
   diceroll: diceroll,
-  fact: fact
+  fact: fact,
+  dog: dog
+  // dog: pet(dog)
+  // cat: pet(cat)
 }
