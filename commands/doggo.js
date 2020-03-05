@@ -12,15 +12,20 @@ module.exports = async function (command) {
     .setColor('#55555')
   if (args.length === 0) {
     const breedData = await requestBreedData()
-    embed.setTitle('Dog Breeds')
+    // embed.setTitle('Dog Breeds')
     var list = ''
     await breedData.forEach((item, index) => {
       list += titleCase(item) + '\n'
     })
-    embed.addField('‎', list)
+    embed.addField('**Dog Breeds**', list)
+    embed.setFooter('Send an email to admin@gofetch.pictures for suggestion of breeds')
   } else {
     // embed.setImage('https://breedcnd.azureedge.net/shibainu/shiba-inu_4861.jpg')
     const dogImages = await getDoggoData(args.join(' '))
+    if (!dogImages) {
+      message.channel.send('Invalid doggo breed. :(( try again')
+      return
+    }
     dogImages.forEach((item) => {
       embed.setImage(item.imageURL)
       embed.setFooter(item.sourceURL)
@@ -41,6 +46,8 @@ async function getDoggoData (breed) {
       })
     })
     return dogImages
+  } else {
+    return null
   }
 }
 async function requestBreedData () {
