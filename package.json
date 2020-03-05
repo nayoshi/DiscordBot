@@ -14,7 +14,6 @@
         "cheerio": "^1.0.0-rc.3",
         "discord.js": "^11.5.1",
         "prefix": "^1.0.0",
-        "selenium-webdriver": "^4.0.0-alpha.5",
         "node-fetch": "^2.6.0"
     },
     "devDependencies": {

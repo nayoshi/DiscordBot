@@ -12,7 +12,6 @@ module.exports = async function (command) {
     .setColor('#55555')
   if (args.length === 0) {
     const breedData = await requestBreedData()
-    // embed.setTitle('Dog Breeds')
     var list = ''
     await breedData.forEach((item, index) => {
       list += titleCase(item) + '\n'
