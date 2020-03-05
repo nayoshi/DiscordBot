@@ -1,3 +1,4 @@
+// API provided by Abrahan Nevarez https://abrahannevarez.dev/
 const fetch = require('node-fetch')
 const Discord = require('discord.js')
 const fs = require('fs')
